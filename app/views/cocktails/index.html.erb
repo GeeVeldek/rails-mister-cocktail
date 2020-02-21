@@ -1,8 +1,19 @@
-<h1> Mista Cocktail </h1>
-  <% @cocktails.each do |cocktail| %>
-  <ul>
-   <li> <%= link_to cocktail.name, cocktail_path(cocktail) %> </li>
-  </ul>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.giphy.com/media/GCLlQnV7wzKLu/giphy.gif);">
+  <div>
+    <h1>Crazy Cocktails</h1>
+  </div>
+</div>
 
-<%= link_to "create new cocktail", new_cocktail_path %>
+<!-- <div class="container"> -->
+  <div class="card container">
+    <% @cocktails.each do |cocktail| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.pinimg.com/474x/70/15/be/7015bea79d5bb030a23645edcf5d20af--beach-cafe-chocolate-ice-cream.jpg)">
+     <p> <%= link_to cocktail.name, cocktail_path(cocktail) %> </p>
+     <p> <%= link_to "🗑️", cocktail_path(cocktail), method: :delete, data: { confirm: "are you sure mate?"} %> </p>
+    </div>
+    <% end %>
+  </div>
+
+<div class="text-center">
+  <%= link_to "create new cocktail", new_cocktail_path, class: "btn btn-warning" %>
+</div>
